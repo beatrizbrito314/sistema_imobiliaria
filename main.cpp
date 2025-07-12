@@ -7,6 +7,20 @@
 #include "funcoesAux.h"
 using namespace std;
 
+void distribuirImoveis(vector<Corretor*>& corretores, vector<Imovel*>& imoveis) {
+    vector<Corretor*> avaliadores;
+    for (auto& c : corretores)
+        if (c->isAvaliador()) // usa o getter
+            avaliadores.push_back(c);
+
+    int pos = 0;
+    for (auto& im : imoveis) {
+        Corretor* c = avaliadores[pos];
+        c->imoveis.push_back(im);
+        pos = (pos + 1) % avaliadores.size();
+    }
+}
+
 int main() {
     vector<Cliente*> listaClientes;
     vector<Corretor*> listaCorretores;
@@ -27,6 +41,7 @@ int main() {
     for (int i = 0; i < n; i++){
         cadastrarImovel(listaImoveis); 
     }
+
     //TESTES
    /* cout<<"Clientes"<<endl;
     for (Cliente* c : listaClientes) {

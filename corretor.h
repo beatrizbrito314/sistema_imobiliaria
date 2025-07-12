@@ -2,6 +2,8 @@
 #define CORRETOR_h
 #include <iostream>
 #include <string>
+#include <vector>
+#include "imovel.h"
 using namespace std;
 
 class Corretor
@@ -26,5 +28,8 @@ public:
     bool isAvaliador();
     float getLat();
     float getLng();
+
+    std::vector<Imovel*> imoveis;   //  lista sem ordem definida dos imóveis a se visitar de cada corretor
+    std::vector<std::pair<int, Imovel*>> agenda; // definição da ordem e horário das vísitas aos imóveis de cada corretor
 };
 #endif

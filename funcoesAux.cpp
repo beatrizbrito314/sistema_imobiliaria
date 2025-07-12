@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cmath>
 #include "cliente.h"
 #include "corretor.h"
 #include "imovel.h"
@@ -85,4 +86,22 @@ void cadastrarCorretor(vector<Corretor*> &listaCorretores, vector<Corretor*> &li
         listaAvaliadores.push_back(corretor);
         listaCorretores.push_back(corretor);
     }
+}
+
+const double PI = 3.14159265358979323846;
+
+double deg2rad(double deg) {
+    return deg * (PI / 180.0);
+}
+
+double haversine(double lat1, double lon1, double lat2, double lon2) {
+    double dlat = deg2rad(lat2 - lat1);
+    double dlon = deg2rad(lon2 - lon1);
+    lat1 = deg2rad(lat1);
+    lat2 = deg2rad(lat2);
+
+    double a = sin(dlat / 2) * sin(dlat / 2) +
+               sin(dlon / 2) * sin(dlon / 2) * cos(lat1) * cos(lat2);
+    double c = 2 * atan2(sqrt(a), sqrt(1 - a));
+    return 6371.0 * c; // distância em km
 }
