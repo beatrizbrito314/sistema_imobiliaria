@@ -29,7 +29,5 @@ public:
     float getLat();
     float getLng();
 
-    std::vector<Imovel*> imoveis;   //  lista sem ordem definida dos imóveis a se visitar de cada corretor
-    std::vector<std::pair<int, Imovel*>> agenda; // definição da ordem e horário das vísitas aos imóveis de cada corretor
 };
 #endif

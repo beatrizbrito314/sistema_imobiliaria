@@ -5,6 +5,7 @@
 #include "cliente.h"
 #include "corretor.h"
 #include "imovel.h"
+#include "funcoesAux.h"
 using namespace std;
 string converterString(imovelTipo tipo) {
     if (tipo == Casa)
@@ -88,20 +89,23 @@ void cadastrarCorretor(vector<Corretor*> &listaCorretores, vector<Corretor*> &li
     }
 }
 
-const double PI = 3.14159265358979323846;
-
-double deg2rad(double deg) {
-    return deg * (PI / 180.0);
+void distribuirImoveis(vector<Corretor*>& avaliadores, vector<Imovel*>& imoveis, vector<vector<Imovel*>>& imoveisDistribuidos) {
+    int pos = 0;
+    for (Imovel* im : imoveis) {
+        imoveisDistribuidos[pos].push_back(im);
+        pos = (pos + 1) % avaliadores.size();
+    }
 }
 
+constexpr double EARTH_R = 6371.0; // Raio da Terra em km
+
 double haversine(double lat1, double lon1, double lat2, double lon2) {
+    auto deg2rad = [](double d){ return d * M_PI / 180.0; };
     double dlat = deg2rad(lat2 - lat1);
     double dlon = deg2rad(lon2 - lon1);
-    lat1 = deg2rad(lat1);
-    lat2 = deg2rad(lat2);
-
-    double a = sin(dlat / 2) * sin(dlat / 2) +
-               sin(dlon / 2) * sin(dlon / 2) * cos(lat1) * cos(lat2);
-    double c = 2 * atan2(sqrt(a), sqrt(1 - a));
-    return 6371.0 * c; // distância em km
+    double a = std::pow(std::sin(dlat/2), 2) +
+               std::cos(deg2rad(lat1)) * std::cos(deg2rad(lat2)) *
+               std::pow(std::sin(dlon/2), 2);
+    double c = 2 * std::atan2(std::sqrt(a), std::sqrt(1 - a));
+    return EARTH_R * c;
 }
