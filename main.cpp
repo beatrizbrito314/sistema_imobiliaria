@@ -5,6 +5,8 @@
 #include "corretor.h"
 #include "imovel.h"
 #include "funcoesAux.h"
+#include "agenda.h"
+
 using namespace std;
 
 int main() {
@@ -31,6 +33,10 @@ int main() {
     vector<vector<Imovel*>> imoveisDistribuidos(listaAvaliadores.size());
     distribuirImoveis(listaAvaliadores, listaImoveis, imoveisDistribuidos);
     
+    
+    vector<vector<Agendamento>> agendas = gerarAgenda(listaAvaliadores, imoveisDistribuidos, listaClientes);
+    imprimirAgenda(listaAvaliadores, agendas);
+
     //TESTES
    /* cout<<"Clientes"<<endl;
     for (Cliente* c : listaClientes) {
@@ -73,3 +79,4 @@ int main() {
         return 0;
 
     }
+    
