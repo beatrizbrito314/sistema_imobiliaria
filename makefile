@@ -23,7 +23,7 @@ all:
 	g++ -Wall -c funcoesAux.cpp
 
 	@echo "\033[$(ROSA)mLinkando arquivos...\033[0m"
-	g++ -Wall -o imobiliaria main.o cliente.o corretor.o imovel.o funcoesAux.o 
+	g++ -Wall -o imobiliaria main.o cliente.o corretor.o imovel.o funcoesAux.o
 	@echo "\033[1;$(VERDE)mCompilação realizada com sucesso!:)\033[0m"
 	@echo "\033[$(CIANO)m----------------------------------------\033[0m"
 

@@ -5,7 +5,6 @@
 #include "corretor.h"
 #include "imovel.h"
 #include "funcoesAux.h"
-#include "agenda.h"
 
 using namespace std;
 
@@ -33,9 +32,16 @@ int main() {
     vector<vector<Imovel*>> imoveisDistribuidos(listaAvaliadores.size());
     distribuirImoveis(listaAvaliadores, listaImoveis, imoveisDistribuidos);
     
-    
-    vector<vector<Agendamento>> agendas = gerarAgenda(listaAvaliadores, imoveisDistribuidos);
-    imprimirAgenda(listaAvaliadores, agendas);
+   vector<vector<Agendamento>> agendas = gerarAgenda(listaAvaliadores, imoveisDistribuidos);
+
+   //como modifiquei a função de impressão, criei esse for para imprimir todos as agendas
+    for (size_t i = 0; i < listaAvaliadores.size(); i++) {
+    imprimirAgenda(listaAvaliadores[i], agendas[i]);
+    //para colocar as linhas apenas entres os corretores e evitar linha extra
+    if (i != listaAvaliadores.size() - 1) {
+        cout << endl;
+    }
+    }
 
     //TESTES
    /* cout<<"Clientes"<<endl;
