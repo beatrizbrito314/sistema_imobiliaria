@@ -34,7 +34,7 @@ int main() {
     distribuirImoveis(listaAvaliadores, listaImoveis, imoveisDistribuidos);
     
     
-    vector<vector<Agendamento>> agendas = gerarAgenda(listaAvaliadores, imoveisDistribuidos, listaClientes);
+    vector<vector<Agendamento>> agendas = gerarAgenda(listaAvaliadores, imoveisDistribuidos);
     imprimirAgenda(listaAvaliadores, agendas);
 
     //TESTES
@@ -79,4 +79,3 @@ int main() {
         return 0;
 
     }
-    
