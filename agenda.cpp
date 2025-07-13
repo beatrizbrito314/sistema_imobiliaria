@@ -2,13 +2,13 @@
 #include <iomanip>
 #include <sstream>
 #include "agenda.h"
-#include "funcoesAux.h"  
+#include "funcoesAux.h"
+
 using namespace std;
 
 vector<vector<Agendamento>> gerarAgenda( //Calcula para cada corretor o horário de cada visita e o imóvel corresppndente 
     vector<Corretor*>& avaliadores,
-    vector<vector<Imovel*>>& imoveisDistribuidos,
-    vector<Cliente*>& clientes
+    vector<vector<Imovel*>>& imoveisDistribuidos
 ) {
     vector<vector<Agendamento>> agendaFinal(avaliadores.size());
 
@@ -44,15 +44,6 @@ vector<vector<Agendamento>> gerarAgenda( //Calcula para cada corretor o horário
             evento.horario = horarioStr.str();
             evento.imovel = imovel;
 
-            //Associando o cliente
-            int idCliente = imovel->getIdProprietario();
-            for (Cliente* c : clientes) {
-                if (c->getId() == idCliente) {
-                    evento.cliente = c;
-                    break;
-                }
-            }
-
             //Colocando o agendamento na agenda do corretor
             agendaFinal[i].push_back(evento);
 
@@ -86,4 +77,3 @@ void imprimirAgenda( //Formata e exibe a agenda dos corretores
     }
 
 }
-

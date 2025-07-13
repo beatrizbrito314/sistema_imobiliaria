@@ -2,21 +2,21 @@
 #define AGENDA_H
 
 #include <string>
-#include "imovel.h"
-#include "cliente.h"
+#include <vector>
 #include "corretor.h"
+#include "imovel.h"
+
 using namespace std;
+
 
 struct Agendamento {
     string horario;
     Imovel* imovel;
-    Cliente* cliente;
 };
 
 vector<vector<Agendamento>> gerarAgenda(
     vector<Corretor*>& avaliadores,
-    vector<vector<Imovel*>>& imoveisDistribuidos,
-    vector<Cliente*>& clientes
+    vector<vector<Imovel*>>& imoveisDistribuidos
 );
 
 void imprimirAgenda(
