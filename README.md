@@ -15,6 +15,7 @@ make
 ./imobiliaria < entrada.txt > saida1.txt
 ### Outras informações
 O arquivo de entrada deve seguir o seguinte padrão:
+
 [número de corretores]
 
 [telefone] [avaliador] [latitude] [longitude] [nome]
