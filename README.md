@@ -1,9 +1,7 @@
-# :house_with_garden: Sistema de gerenciamento de imobili
+# :house_with_garden: Sistema de gerenciamento de imobiliaria
 ### :mag_right: Sobre
 
 Este é um programa desenvolvido em C++ Para a disciplina **Linguagem de Programação I-IMD/UFRN**. Ele simula um sistema de gerenciamento de imobiliária simples, incluindo classes para clientes, corretores e imóveis. Além disso, também inclue a funcionalidade de gerar agendas inteligentes para os corretores avaliadores.
-
-> :bulb: Utilize o "MakeFile" para gerar o arquivo executável.
 
 ### :computer: Uso
 #### 1. Clonar o repositório
