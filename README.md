@@ -16,12 +16,19 @@ make
 ### Outras informações
 O arquivo de entrada deve seguir o seguinte padrão:
 [número de corretores]
+
 [telefone] [avaliador] [latitude] [longitude] [nome]
+
 ...
+
 [número de clientes]
+
 [telefone] [nome]
+
 ...
+
 [número de imóveis]
+
 [tipo] [proprietarioId] [latitude] [longitude] [preco] [endereco]
 ...
 
